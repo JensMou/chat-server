@@ -5,11 +5,25 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
- 
 <ion-content padding>
+  <button ion-button full (click)="joinChat()" [disabled]="nickname === '' || selectedChatRoom === ''">Join {{selectedChatRoom}} as {{ nickname }}</button>
   <ion-item>
-    <ion-label stacked>Choose nickname</ion-label>
     <ion-input type="text" [(ngModel)]="nickname" placeholder="Nickname"></ion-input>
   </ion-item>
-  <button ion-button full (click)="joinChat()" [disabled]="nickname === ''">Join Chat as {{ nickname }}</button>
+
+  <ion-label *ngIf="chatRooms.length > 0">Choose A Chat Room:</ion-label>
+  <ion-list *ngFor="let chatRoom of chatRooms" radio-group [(ngModel)]="selectedChatRoom" name="selectedChatRoom" required>
+    <ion-item>
+        <ion-label>{{chatRoom.name}}</ion-label>
+        <ion-radio value="{{chatRoom.name}}"></ion-radio>
+      </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-input type="text" [(ngModel)]="chatRoomName" placeholder="Name a chat room"></ion-input>
+    <button ion-button icon-only item-right clear (click)="addChatRoom()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-item>
+
 </ion-content>

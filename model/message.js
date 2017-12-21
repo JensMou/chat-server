@@ -4,7 +4,8 @@ let schema = mongoose.Schema;
 let messageSchema = schema({
     text: String, 
     from: String, 
-    created: Date
+    created: Date,
+    chatRoom: String
 });
 
-mongoose.model('message', messageSchema);
+module.exports = mongoose.model('message', messageSchema);
