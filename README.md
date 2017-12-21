@@ -9,3 +9,10 @@
   <li>Run npm start</li>
   <li>Running on localhost:8100 (should open default browser automatically) 
 </ol>
+
+<h3>Test with cordova</h3>
+<p>https://www.npmjs.com/package/cordova</p>
+<p>E.g.</p>
+<p>Run: ionic cordova build ios</p>
+<p>Run: ionic cordova emulate ios<p>
+	
